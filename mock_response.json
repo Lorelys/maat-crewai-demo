@@ -1,0 +1,26 @@
+{
+  "accepted": false,
+  "findings": [
+    {
+      "code": "REQ_DISCOUNT_EXCEEDED",
+      "severity": "blocker",
+      "message": "discount_pct 40.0 exceeds contract discount_authorization_pct 10.0",
+      "node_id": "pricing",
+      "owner": "pricing_agent",
+      "handoff_id": "pricing_to_invoice",
+      "defect_type": "contradictory",
+      "requires_human_review": false
+    },
+    {
+      "code": "INFO_UNRELIABLE",
+      "severity": "warning",
+      "message": "'pricing_quote' carries no provenance/evidence; cannot be verified.",
+      "node_id": "pricing",
+      "owner": "pricing_agent",
+      "handoff_id": "pricing_to_invoice",
+      "defect_type": "unreliable",
+      "requires_human_review": false
+    }
+  ],
+  "depth": "standard"
+}

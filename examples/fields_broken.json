@@ -1,0 +1,14 @@
+{
+  "pricing": {
+    "produces": ["order_id", "list_total_eur"],
+    "needs": ["order_id"]
+  },
+  "invoice": {
+    "produces": ["invoice_id", "invoice_total_eur"],
+    "needs": ["order_id", "discounted_total_eur"]
+  },
+  "intake": {
+    "produces": ["order_id"],
+    "needs": []
+  }
+}
