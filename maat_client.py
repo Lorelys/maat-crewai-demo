@@ -25,7 +25,12 @@ DEFECTIVE_DISCOUNT_PCT = 40.0
 
 
 def maat_url() -> str:
-    return os.environ.get("MAAT_URL", DEFAULT_MAAT_URL).rstrip("/")
+    base = os.environ.get("MAAT_URL", DEFAULT_MAAT_URL).rstrip("/")
+    # The client appends /v1/... itself. If someone sets MAAT_URL with a
+    # trailing /v1, strip it so we don't build /v1/v1/... (a 404).
+    if base.endswith("/v1"):
+        base = base[:-3].rstrip("/")
+    return base
 
 
 def maat_key() -> str:

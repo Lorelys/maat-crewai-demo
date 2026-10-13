@@ -97,7 +97,7 @@ class OrderFlow(Flow[OrderState]):
             maat.save_mock_response(verdict)
             print(f"  wrote {maat.MOCK_PATH.name}")
 
-        self.state.maat_accepted = bool(verdict.get("accepted"))
+        self.state.maat_accepted = verdict.get("accepted") is True
         self.state.maat_findings = list(verdict.get("findings") or [])
 
         if self.state.maat_accepted:
